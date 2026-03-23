@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление новости — RSCI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2c5282;
+            --secondary: #4a5568;
+            --light: #f7fafc;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            min-height: 100vh;
+        }
+        .main-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        .main-header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .form-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .form-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: 500;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .form-control, .form-select {
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            padding: 12px 15px;
+            font-size: 0.95rem;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .btn-primary {
+            background: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background: var(--primary-light);
+        }
+        .output-card {
+            background: #2d3748;
+            color: #a0aec0;
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.85rem;
+            max-height: 500px;
+            overflow: auto;
+            position: relative;
+        }
+        .output-card pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        .copy-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .step {
+            color: var(--secondary);
+            font-size: 0.85rem;
+            margin-top: 3px;
+        }
+        .photo-section {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .badge-template {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #edf2f7;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-header">
+        <div class="container">
+            <h1><i class="material-icons">add_circle</i> Добавление новости</h1>
+            <p class="step">Заполните форму → скопируйте JSON → добавьте в news.json</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Форма -->
+            <div class="col-lg-6">
+                <div class="form-card">
+                    <h3>Основная информация</h3>
+                    <div class="form-group">
+                        <label>Тип новости <span class="badge-template">news | certificates</span></label>
+                        <select class="form-select" id="newsType" onchange="toggleTypeFields()">
+                            <option value="news">Новость (конференция, мероприятие)</option>
+                            <option value="certificates">Сертификаты</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>ID (уникальный идентификатор)</label>
+                        <input type="text" class="form-control" id="newsId" placeholder="2025-03-11-krasanodar">
+                        <small class="text-muted">например: 2025-03-11-krasanodar</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Заголовок</label>
+                        <input type="text" class="form-control" id="newsTitle" placeholder="Выступление с докладом на...">
+                    </div>
+                    <div class="form-group" id="descriptionGroup">
+                        <label>Описание (краткое)</label>
+                        <textarea class="form-control" id="newsDescription" placeholder="С 10 по 11 марта в Краснодаре проходила..."></textarea>
+                    </div>
+                    <div class="form-group" id="detailsGroup">
+                        <label>Детали (о участниках и докладе)</label>
+                        <textarea class="form-control" id="newsDetails" placeholder="Андреева Мария Игоревна приняла участие и представила доклад..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-card" id="photosCard">
+                    <h3>Фотографии</h3>
+                    <div class="form-group">
+                        <label>Папка с фото (по умолчанию -- дата новости)</label>
+                        <input type="text" class="form-control" id="photoFolder" placeholder="2025-03-11">
+                    </div>
+                    <div class="form-group">
+                        <label>Список фото (названия файлов по одной на строке)</label>
+                        <div class="photo-section">
+                            <textarea class="form-control" id="photoList" placeholder="01.jpg&#10;02.jpg&#10;03.jpg&#10;04.jpg" rows="5"></textarea>
+                            <small class="text-muted">Только названия файлов (без пути). Будут добавлены к папке: <code>./static/img/rsci/news/ДАТА/</code></small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card" id="linksCard">
+                    <h3>Ссылки</h3>
+                    <div class="form-group">
+                        <label>Ссылка на программу конференции (для новостей, опционально)</label>
+                        <input type="text" class="form-control" id="programLink" placeholder="https://...">
+                    </div>
+                </div>
+
+                <div class="form-card" id="certificatesCard" style="display:none;">
+                    <h3>Сертификаты</h3>
+                    <div class="form-group">
+                        <label>Сертификаты (ФИО|путь на каждой строке)</label>
+                        <div class="photo-section">
+                            <textarea class="form-control" id="certificatesInput" placeholder="Андреева М.И.|./static/pdf/cert_001.pdf&#10;Воронин К.В.|./static/pdf/cert_002.pdf" rows="4"></textarea>
+                            <small class="text-muted">Формат: ФИО|путь, каждый сертификат на новой строке</small>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label>Ссылка на программу конференции (опционально)</label>
+                        <input type="text" class="form-control" id="programLinkCert" placeholder="https://...">
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="generateJSON()">
+                    <i class="material-icons">code</i> Сгенерировать JSON
+                </button>
+            </div>
+
+            <!-- Результат -->
+            <div class="col-lg-6">
+                <div class="form-card">
+                    <h3>JSON для добавления в news.json</h3>
+                    <div class="output-card">
+                        <button class="copy-btn" onclick="copyJSON()">Копировать</button>
+                        <pre id="jsonOutput">Здесь появится JSON после заполнения формы</pre>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h3>Как добавить новость</h3>
+                    <ol style="color: var(--secondary); line-height: 1.8;">
+                        <li>Создайте папку: <code>static/img/rsci/news/ДАТА/</code></li>
+                        <li>Загрузите туда фото (например: 01.jpg, 02.jpg, 03.jpg)</li>
+                        <li>Укажите название папки (по умолчанию -- дата новости)</li>
+                        <li>Введите список фото (только имена, по одному на строку)</li>
+                        <li>Заполните остальные поля и нажмите "Сгенерировать JSON"</li>
+                        <li>Скопируйте JSON и вставьте в <code>news.json</code></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTypeFields() {
+            const type = document.getElementById('newsType').value;
+            const descGroup = document.getElementById('descriptionGroup');
+            const detailsGroup = document.getElementById('detailsGroup');
+            const photosCard = document.getElementById('photosCard');
+            const linksCard = document.getElementById('linksCard');
+            const certCard = document.getElementById('certificatesCard');
+            
+            if (type === 'certificates') {
+                descGroup.style.display = 'none';
+                detailsGroup.style.display = 'none';
+                photosCard.style.display = 'none';
+                linksCard.style.display = 'none';
+                certCard.style.display = 'block';
+            } else {
+                descGroup.style.display = 'block';
+                detailsGroup.style.display = 'block';
+                photosCard.style.display = 'block';
+                linksCard.style.display = 'block';
+                certCard.style.display = 'none';
+            }
+        }
+
+        function generateJSON() {
+            const type = document.getElementById('newsType').value;
+            const id = document.getElementById('newsId').value || 'new-id';
+            const title = document.getElementById('newsTitle').value;
+            
+            let output = {};
+            output.id = id;
+            output.title = title;
+            
+            if (type === 'news') {
+                output.description = document.getElementById('newsDescription').value;
+                output.details = document.getElementById('newsDetails').value;
+                
+                // Фотографии
+                let photoFolder = document.getElementById('photoFolder').value.trim();
+                if (!photoFolder) {
+                    photoFolder = document.getElementById('newsId').value || 'new-date';
+                }
+                
+                const photoText = document.getElementById('photoList').value.trim();
+                if (photoText) {
+                    output.photos = photoText.split('\n').map(p => {
+                        const name = p.trim();
+                        return name ? `./static/img/rsci/news/${photoFolder}/${name}` : '';
+                    }).filter(p => p);
+                }
+                
+                // Ссылка на программу
+                const programLink = document.getElementById('programLink').value.trim();
+                if (programLink) {
+                    output.programLink = programLink;
+                }
+            } else {
+                // Сертификаты
+                const certText = document.getElementById('certificatesInput').value.trim();
+                if (certText) {
+                    const certs = certText.split('\n').map(line => {
+                        const parts = line.split('|');
+                        return { name: parts[0]?.trim(), link: parts[1]?.trim() };
+                    }).filter(c => c.name && c.link);
+                    output.certificates = certs;
+                }
+                output.type = 'certificates';
+                
+                // Ссылка на программу для сертификатов
+                const programLinkCert = document.getElementById('programLinkCert').value.trim();
+                if (programLinkCert) {
+                    output.programLink = programLinkCert;
+                }
+            }
+            
+            document.getElementById('jsonOutput').textContent = JSON.stringify(output, null, 2);
+        }
+
+        function copyJSON() {
+            const json = document.getElementById('jsonOutput').textContent;
+            navigator.clipboard.writeText(json).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = 'Скопировано!';
+                setTimeout(() => btn.textContent = 'Копировать', 1500);
+            });
+        }
+
+        // Автозаполнение ID и фото папки по дате
+        document.getElementById('newsTitle').addEventListener('input', function() {
+            const idInput = document.getElementById('newsId');
+            const photoFolder = document.getElementById('photoFolder');
+            if (!idInput.value) {
+                const today = new Date().toISOString().split('T')[0];
+                const slug = this.value.toLowerCase().replace(/[^a-zа-я0-9]+/g, '-').substring(0, 30);
+                idInput.value = today + '-' + slug;
+                if (!photoFolder.value) {
+                    photoFolder.value = today;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

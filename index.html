@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Когнитивная и лингвистическая сложность текста</title>
+    
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./static/css/rsci.css">
+    
+    <link rel="icon" href="./static/rsci_logo.webp" type="image/png">
+</head>
+
+<body>
+
+    <!-- Навбар -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="material-icons">psychology</i>
+                Когнитивная сложность текста
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><i class="material-icons">info</i> О проекте</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#publications"><i class="material-icons">library_books</i> Публикации</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news"><i class="material-icons">article</i> Новости</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><i class="material-icons">group</i> Исполнители</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery"><i class="material-icons">photo_library</i> Галерея</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header>
+        <div class="container">
+            <h2>Когнитивная и лингвистическая<br>сложность текста</h2>
+            <p>Грант РНФ №24-78-10129</p>
+            <a href="#about" class="btn">Узнать больше</a>
+        </div>
+    </header>
+
+    <!-- О проекте -->
+    <section id="about">
+        <div class="container">
+            <h2><i class="material-icons">info</i> О проекте</h2>
+            
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="annotation">Аннотация</button>
+                    <button class="tab-btn" data-tab="methodology">Методология</button>
+                    <button class="tab-btn" data-tab="participants">Участники</button>
+                </div>
+                <div class="tab-content active" id="tab-annotation">
+                    <p>
+                        Современная наука, обогатив себя междисциплинарными инструментами и подходами, вновь
+                        обратилась к проблемам лингвистической сложности текста
+                        (<a href="#">Мизернов, Гращенко, 2015</a>; <a href="#">Криони, Никин, Филиппова
+                            2008</a>) и когнитивной трудности текста для читателя
+                        (<a href="#">Graesser et al., 2004</a>). Данная проблема сопряжена с другой
+                        малоизученной проблемой – проблемой создания прогностических моделей
+                        трансформаций семантических ролей в русском дискурсе, решение которой открывает
+                        возможности для (1) лингвокогнитивного моделирования развертывания/свертывания
+                        текста (<a href="#">Симоненко, 2019</a>) и (2) создания целостной языковой модели мира
+                        (<a href="#">Petrova et al 2023</a>).
+                    </p>
+                    <p>
+                        На решение данных проблем и нацелен предлагаемый междисциплинарный проект, реализацию
+                        которого планируется осуществлять на материале текстов-ретранслятов,
+                        т.е. пересказов учебного текста.
+                    </p>
+                </div>
+                <div class="tab-content" id="tab-methodology">
+                    <p>
+                        Корпус исследования будет собираться в ходе психолингвистического эксперимента по письменному воспроизведению студентами-иностранцами художественного и научного текста для чтения и составит не менее 500 000 словоупотреблений.
+                    </p>
+                    <p>
+                        Тексты, предлагаемые для чтения и воспроизведения, а также тексты-ретрансляты (пересказы студентов) пройдут оценку сложности по трем шкалам:
+                        уровень читаемости (индекс Флеша-Кинкейда), лексическая сложность (по Общеевропейской шкале уровней владения языком) и когнитивная (информационная) сложность текста.
+                    </p>
+                </div>
+                <div class="tab-content" id="tab-participants">
+                    <p>
+                        В качестве респондентов планируется привлечь не менее 100 студентов, изучающих русский как иностранный (РКИ). Оценка когнитивной трудности текста для читателя, т.е. готовности языковой личности к перцепции, рефлекции и воспроизведению конкретного текста, будет произведена на основе критериального подхода, предполагающего учет индивидуальных характеристик читателя.
+                    </p>
+                    <p>
+                        На образовательной платформе <a href="#">Rulex</a> (rulex.kpfu.ru/) мы планируем осуществить оценку объема лексической памяти, тревожности, мотивированности, объема словарного запаса каждого респондента.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Цели и принципы -->
+    <section class="project-section">
+        <div class="container">
+            <h2><i class="material-icons">flag</i> Цель и принципы</h2>
+            
+            <div class="goals-principles">
+                <div class="item goal">
+                    <div class="icon"><i class="material-icons">emoji_objects</i></div>
+                    <h3>Цель проекта</h3>
+                    <p>Глубокое и открытое вовлечение академического сообщества Российской Федерации для учебно-методической, научно-исследовательской профессиональной дискуссии.</p>
+                </div>
+                
+                <div class="item principles">
+                    <div class="icon"><i class="material-icons">auto_awesome</i></div>
+                    <h3>Принципы</h3>
+                    <ul>
+                        <li>Исследование и апробация в едином процессе</li>
+                        <li>Сотрудничество с экспертным сообществом</li>
+                        <li>Взаимодействие с институтами и объединениями</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Публикации -->
+    <section id="publications">
+        <div class="container">
+            <h2><i class="material-icons">library_books</i> Публикации</h2>
+            
+            <div class="publications-grid">
+                <!-- 2024 -->
+                <div class="publication-card">
+                    <span class="year">2024</span>
+                    <a href="./static/rsci/pdf/pub_001.pdf">
+                        [1] Предикторы когнитивной и лингвистической сложности текстов РКИ
+                    </a>
+                    <div class="authors">Андреева М.И., Солнышкина М.И., Муфазалова Н.И.</div>
+                    <div class="source">Сборник материалов VII Междун. форум РКИ, Москва, 21-22 ноября 2024 г.</div>
+                    <span class="badge">Методическое пособие</span>
+                </div>
+                
+                <div class="publication-card">
+                    <span class="year">2024</span>
+                    <a href="./static/rsci/pdf/pub_002.pdf">
+                        [2] Номинации референтов культурного кода России как предиктор сложности текстов РКИ
+                    </a>
+                    <div class="authors">Андреева М.И., Солнышкина М.И., Муфазалова Н.И.</div>
+                    <div class="source">Международный форум «Взаимодействие науки и общества», Алматы, 14-16 октября 2024 г.</div>
+                </div>
+                
+                <div class="publication-card">
+                    <span class="year">2024</span>
+                    <a href="https://drive.google.com/file/d/1FgS3re71k6i57Q8G7zfy5ntGCfhEG3v2/view?usp=sharing">
+                        [3] Лингвистическое профилирование учебных и художественных текстов
+                    </a>
+                    <div class="authors">Воронин К.В., Исмаева Ф.Х., Данилов А.В.</div>
+                    <div class="source">Журнал «Русистика». 2024. Т. 22. № 4. С. 555–578</div>
+                    <span class="badge scopus">Scopus</span>
+                </div>
+                
+                <div class="publication-card">
+                    <span class="year">2024</span>
+                    <a href="./static/rsci/pdf/pub_005.pdf">
+                        [4] Функционал RuLingva для анализа текстов РКИ
+                    </a>
+                    <div class="authors">Солнышкина М.И., Андреева М.И., Воронин К.В.</div>
+                    <div class="source">Международная научная конференция Казань, 18-20 ноября 2024 г.</div>
+                </div>
+                
+                <!-- 2025 -->
+                <div class="publication-card">
+                    <span class="year">2025</span>
+                    <a href="./static/rsci/pdf/pub_006.pdf">
+                        [5] Аналитика учебных текстов для изучения русского языка как иностранного
+                    </a>
+                    <div class="authors">Андреева М.И., Солнышкина М.И., Данилов А.В.</div>
+                    <div class="source">Международный семинар по обработке естественного языка, Томск, 2025 г.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Новости -->
+    <section id="news">
+        <div class="container">
+            <h2><i class="material-icons">article</i> Представление результатов</h2>
+            
+            <!-- Modal для изображений -->
+            <div class="modal fade" id="imageModal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Просмотр изображения</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img id="modal-image" src="" alt="Изображение" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="news-container">
+                <!-- Новости загружаются из news.json -->
+            </div>
+            <script>
+                if (!document.getElementById('news-container').innerHTML.trim()) {
+                    document.getElementById('news-container').innerHTML = 
+                        '<div class="news-card"><div class="news-card-header"><h3>Загрузка новостей...</h3></div></div>';
+                }
+            </script>
+        </div>
+    </section>
+
+    <!-- Исполнители -->
+    <section id="contact">
+        <div class="container">
+            <h2><i class="material-icons">group</i> Исполнители</h2>
+            
+            <div class="team-grid">
+                <div class="team__item">
+                    <div class="team__item__photo">
+                        <img src="./static/img/contacts/mandr.jpg" alt="Мария Андреева">
+                    </div>
+                    <div class="team__item__name">Мария Игоревна Андреева</div>
+                    <div class="team__item__status">к.фил.наук</div>
+                    <div class="team__item__position">Старший научный сотрудник НИЛ «Текстовая аналитика»</div>
+                </div>
+                
+                <div class="team__item">
+                    <div class="team__item__photo">
+                        <img src="./static/img/contacts/adani.jpg" alt="Андрей Данилов">
+                    </div>
+                    <div class="team__item__name">Андрей Владимирович Данилов</div>
+                    <div class="team__item__status">к.пед.наук</div>
+                    <div class="team__item__position">Старший научный сотрудник НИЛ «Текстовая аналитика»</div>
+                </div>
+                
+                <div class="team__item">
+                    <div class="team__item__photo">
+                        <img src="./static/img/contacts/ggati.jpg" alt="Галия Гатиятуллина">
+                    </div>
+                    <div class="team__item__name">Галия Маратовна Гатиятуллина</div>
+                    <div class="team__item__status"></div>
+                    <div class="team__item__position">Младший научный сотрудник НИЛ «Текстовая аналитика»</div>
+                </div>
+                
+                <div class="team__item">
+                    <div class="team__item__photo">
+                        <img src="./static/img/contacts/no-avatar.png" alt="Константин Воронин">
+                    </div>
+                    <div class="team__item__name">Константин Валерьевич Воронин</div>
+                    <div class="team__item__status"></div>
+                    <div class="team__item__position">Ассистент кафедры теории и практики преподавания иностранных языков</div>
+                </div>
+                
+                <div class="team__item">
+                    <div class="team__item__photo">
+                        <img src="./static/img/contacts/emart.jpg" alt="Екатерина Мартынова">
+                    </div>
+                    <div class="team__item__name">Екатерина Владимировна Мартынова</div>
+                    <div class="team__item__status"></div>
+                    <div class="team__item__position">Старший научный сотрудник НИЛ «Текстовая аналитика»</div>
+                </div>
+                
+                <div class="team__item">
+                    <div class="team__item__photo">
+                        <img src="./static/img/contacts/nmufa.jpg" alt="Наиля Муфазалова">
+                    </div>
+                    <div class="team__item__name">Наиля Илдаровна Муфазалова</div>
+                    <div class="team__item__status"></div>
+                    <div class="team__item__position">Научный сотрудник НИЛ «Текстовая аналитика»</div>
+                </div>
+                
+                <div class="team__item">
+                    <div class="team__item__photo">
+                        <img src="./static/img/contacts/avahr.jpg" alt="Александра Вахрушева">
+                    </div>
+                    <div class="team__item__name">Александра Яковлевна Вахрушева</div>
+                    <div class="team__item__status"></div>
+                    <div class="team__item__position">Научный сотрудник НИЛ «Текстовая аналитика»</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея -->
+    <section id="gallery">
+        <div class="container">
+            <h2><i class="material-icons">photo_library</i> Галерея</h2>
+            <p class="lead text-center" style="color: rgba(255,255,255,0.8);">Фото с конференций и мероприятий проекта</p>
+            
+            <div class="gallery-grid">
+                <img src="./static/img/rsci/news/18112024/1.jpg" alt="Фото 1" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="updateModalImage('./static/img/rsci/news/18112024/1.jpg')">
+                <img src="./static/img/rsci/news/18112024/2.jpg" alt="Фото 2" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="updateModalImage('./static/img/rsci/news/18112024/2.jpg')">
+                <img src="./static/img/rsci/news/18112024/3.jpg" alt="Фото 3" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="updateModalImage('./static/img/rsci/news/18112024/3.jpg')">
+                <img src="./static/img/rsci/news/29102024/1.jpg" alt="Фото 4" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="updateModalImage('./static/img/rsci/news/29102024/1.jpg')">
+                <img src="./static/img/rsci/news/29102024/4.jpg" alt="Фото 5" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="updateModalImage('./static/img/rsci/news/29102024/4.jpg')">
+                <img src="./static/img/rsci/news/21112024/1.jpg" alt="Фото 6" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="updateModalImage('./static/img/rsci/news/21112024/1.jpg')">
+                <img src="./static/img/rsci/news/2025-04-03/01.jpg" alt="Фото 7" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="updateModalImage('./static/img/rsci/news/2025-04-03/01.jpg')">
+                <img src="./static/img/rsci/news/2025-04-10/01.jpg" alt="Фото 8" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="updateModalImage('./static/img/rsci/news/2025-04-10/01.jpg')">
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./static/js/rsci.js"></script>
+    <script src="./static/js/news.js"></script>
+    
+    <!-- Tabs functionality -->
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update buttons
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Update content
+                const tabId = btn.dataset.tab;
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById('tab-' + tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
