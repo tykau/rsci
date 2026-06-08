@@ -188,7 +188,6 @@
         "name": "Благодарственное письмо",
         "link": "./static/img/rsci/news/2025-07-29/thanks.pdf"
       }
-
     ],
     "programLink": "./static/img/rsci/news/2025-07-29/letter.pdf",
     "programText": "Информационное письмо"
@@ -328,5 +327,27 @@
       "./static/img/rsci/news/2026-06-02/02.png"
     ],
     "programLink": "https://drive.google.com/file/d/1Lu9n8ZYi6AQ_xjTH3YSfc0I4ilAHxMrO/view?usp=drive_link"
+  },
+  {
+    "id": "2026-06-08-d",
+    "title": "Выступление с докладом на всероссийской конференции в КГМУ",
+    "description": "",
+    "details": "2 июня 2026 года в Казанском государственном медицинском государственном университете  проходила XV Всероссийская научно-практическая конференция с международным участием \"Традиции и инновации в преподавании иностранных языков\".  Мартынова Екатерина Владимировна и Гатиятуллина Галия Маратовна приняли участие в конференции и представили доклад «Лингвистическая и когнитивная сложность текста РКИ». ",
+    "programLink": "https://drive.google.com/file/d/1S403POgjXFLkKey7Bt5qftWq0VH0QHXK/view?usp=drive_link",
+    "certificates": [
+      {
+        "name": "Сертификат Мартынова Е.В.",
+        "link": "./static/img/rsci/news/2026-06-08/certK.pdf"
+      },
+      {
+        "name": "Сертификат Гатиятуллина Г.М.",
+        "link": "./static/img/rsci/news/2026-06-08/certG.pdf"
+      },
+      {
+        "name": "Файл статьи",
+        "link": "./static/img/rsci/news/2026-06-08/article.pdf" 
+      }
+
+    ]
   }
 ]
